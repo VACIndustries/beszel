@@ -2,6 +2,7 @@ import { Trans } from "@lingui/react/macro"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Switch } from "@/components/ui/switch"
 import { chartTimeData } from "@/lib/utils"
 import { Separator } from "@/components/ui/separator"
 import { LanguagesIcon, LoaderCircleIcon, SaveIcon } from "lucide-react"
@@ -99,6 +100,16 @@ export default function SettingsProfilePage({ userSettings }: { userSettings: Us
 					<p className="text-[0.8rem] text-muted-foreground">
 						<Trans>Sets the default time range for charts when a system is viewed.</Trans>
 					</p>
+					<div className="flex items-center space-x-2 mt-4">
+						<Switch
+							name="showHostIp"
+							id="showHostIp"
+							defaultChecked={userSettings.showHostIp}
+						/>
+						<Label htmlFor="showHostIp">
+							<Trans>Show host IP in chart</Trans>
+						</Label>
+					</div>
 				</div>
 				<Separator />
 				<div className="space-y-2">

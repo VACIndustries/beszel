@@ -183,6 +183,7 @@ export default function SystemsTable() {
 							onClick={() => copyToClipboard(info.getValue() as string)}
 						>
 							{info.getValue() as string}
+							{userSettings.showHostIp && <span className="text-muted-foreground"> ({info.row.original.host})</span>}
 							<CopyIcon className="size-2.5" />
 						</Button>
 					</span>
@@ -575,6 +576,7 @@ const SystemTableRow = memo(
 	({ row, length, colLength }: { row: Row<SystemRecord>; length: number; colLength: number }) => {
 		const system = row.original
 		const { t } = useLingui()
+		const userSettings = useStore($userSettings)
 		return useMemo(() => {
 			return (
 				<TableRow
@@ -610,6 +612,7 @@ const SystemCard = memo(
 	({ row, table, colLength }: { row: Row<SystemRecord>; table: TableType<SystemRecord>; colLength: number }) => {
 		const system = row.original
 		const { t } = useLingui()
+		const userSettings = useStore($userSettings)
 
 		return useMemo(() => {
 			return (
@@ -629,6 +632,7 @@ const SystemCard = memo(
 									<IndicatorDot system={system} />
 									<CardTitle className="text-[.95em]/normal tracking-normal truncate text-primary/90">
 										{system.name}
+										{userSettings.showHostIp && <span className="text-muted-foreground"> ({system.host})</span>}
 									</CardTitle>
 								</div>
 							</CardTitle>

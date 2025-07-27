@@ -231,6 +231,7 @@ export interface UserSettings {
 	unitTemp?: Unit
 	unitNet?: Unit
 	unitDisk?: Unit
+	showHostIp?: boolean
 }
 
 type ChartDataContainer = {
